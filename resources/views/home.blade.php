@@ -16,6 +16,9 @@
 
                     {{ __('You are logged in!') }}
                 </div>
+                <div class="card-body">
+                    <a button type="button" href="{{route('vote')}}">Vote</button
+                </div>
             </div>
         </div>
     </div>
