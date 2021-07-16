@@ -5,14 +5,11 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('SELAMAT DATANG') }}</div>
+                <div class="card-header">{{ __('Undi') }}</div>
 
 
                 <div class="card-body">
-                    <button type="button" >PELAJAR</button
-                </div>
-                <div class="card-body">
-                    <button type="button" >ADMIN</button
+                    <button type="button" >Vote</button
                 </div>
             </div>
         </div>
