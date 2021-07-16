@@ -20,4 +20,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/admin', [App\Http\Controllers\LogInChoiceController::class, 'index'])->name('admin');
 Route::get('admin/home', [App\Http\Controllers\HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
+
+Route::get('/vote', [App\Http\Controllers\VoteController::class, 'index'])->name('vote');
