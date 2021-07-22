@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\GeneralCandidates;
 
-class VoteController extends Controller
+class DataStudentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,7 @@ class VoteController extends Controller
     public function index()
     {
         $calonumums = GeneralCandidates::all();
-        return view ('user.vote.index', compact('calonumums'));
+        return view('user.student.index', compact('calonumums'));
     }
 
     /**
@@ -79,8 +79,9 @@ class VoteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(GeneralCandidates $calonumums)
     {
-        //
+        $calonumums -> delete();
+        return redirect()->route('student.index');
     }
 }

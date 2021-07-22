@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\GeneralCandidates;
+use App\Models\ProgramCandidates;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 
-class VoteController extends Controller
+class ProgramCandidateController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +17,7 @@ class VoteController extends Controller
      */
     public function index()
     {
-        $calonumums = GeneralCandidates::all();
-        return view ('user.vote.index', compact('calonumums'));
+        
     }
 
     /**
@@ -25,7 +27,7 @@ class VoteController extends Controller
      */
     public function create()
     {
-        //
+        return view ('user.tambahcalon.create',);
     }
 
     /**
@@ -36,8 +38,34 @@ class VoteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        $request->validate([
+            'identification_number_pcandidate' => 'required',
+            'name' => 'required',
+            'program' => 'required',
+            'image' => 'required',
+        ]);
+
+        $tambahcalonprogram = auth()->user();
+        
+        if($request->hasFile('image')){
+            $filename=$request->image->getClientOriginalName();
+            Storage::disk('public')->put($filename, File::get($request->image));
+        }
+        $tambahcalonprogram = ProgramCandidates::create([
+            'identification_number_pcandidate' => $request->identification_number_pcandidate,
+            'name' => $request->name,
+            'program'=>$request->program,
+            'image'=>$filename,
+        ]);
+        
+            $tambahcalonprogram->save();
+            return redirect()->route('student.index')->with([
+                'alert-type'=>'alert alert-success alert-dismissible',
+                'alert-message'=>'Calon Berjaya Ditambah!'
+            ]);
     }
+
 
     /**
      * Display the specified resource.

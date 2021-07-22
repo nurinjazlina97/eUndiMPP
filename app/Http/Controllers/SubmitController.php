@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\GeneralCandidates;
 
-class VoteController extends Controller
+class SubmitController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +13,7 @@ class VoteController extends Controller
      */
     public function index()
     {
-        $calonumums = GeneralCandidates::all();
-        return view ('user.vote.index', compact('calonumums'));
+        return view('user.vote.submit');
     }
 
     /**

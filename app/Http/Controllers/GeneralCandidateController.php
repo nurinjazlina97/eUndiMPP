@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\GeneralCandidates;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 
-class VoteController extends Controller
+class GeneralCandidateController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +17,7 @@ class VoteController extends Controller
      */
     public function index()
     {
-        $calonumums = GeneralCandidates::all();
-        return view ('user.vote.index', compact('calonumums'));
+        //
     }
 
     /**
@@ -36,7 +38,32 @@ class VoteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'identification_number_gcandidate' => 'required',
+            'name' => 'required',
+            'program' => 'required',
+            'image' => 'required',
+        ]);
+
+        $tambahcalonumum = auth()->user();
+        
+        if($request->hasFile('image')){
+            $filename=$request->image->getClientOriginalName();
+            Storage::disk('public')->put($filename, File::get($request->image));
+        }
+        $tambahcalonumum = GeneralCandidates::create([
+            'identification_number_gcandidate' => $request->identification_number_gcandidate,
+            'name' => $request->name,
+            'program'=>$request->program,
+            'image'=>$filename,
+        ]);
+
+            $tambahcalonumum->save();
+            return redirect()->route('student.index')->with([
+                'alert-type'=>'alert alert-success alert-dismissible',
+                'alert-message'=>'Calon Berjaya Ditambah!'
+            ]);
+        
     }
 
     /**
