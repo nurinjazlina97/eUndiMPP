@@ -16,10 +16,10 @@ class CreateProgramCandidatesTable extends Migration
         Schema::create('program_candidates', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('user_id')->nullable();
-            $table->unsignedInteger('identification_number_gcandidate')->unique();
+            $table->unsignedInteger('identification_number_pcandidate')->unique();
             $table->string('name');
             $table->string('program');
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }

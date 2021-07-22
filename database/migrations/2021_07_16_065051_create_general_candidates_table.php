@@ -19,8 +19,9 @@ class CreateGeneralCandidatesTable extends Migration
             $table->unsignedInteger('identification_number_gcandidate')->unique();
             $table->string('name');
             $table->string('program');
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
