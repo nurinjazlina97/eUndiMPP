@@ -8,20 +8,20 @@
           <!-- Default box -->
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title ">DAFTAR CALON UMUM</h3>
+              <h3 class="card-title ">DAFTAR CALON PROGRAM</h3>
             </div>
             </div>
             <div class="card card-primary">
               <!-- /.card-header -->
               <!-- form start -->
-              <form method="POST" action="{{ route('tambahcalon.simpan')}}" enctype="multipart/form-data">
+              <form method="POST" action="{{ route('tambahcalonprogram.simpan')}}" enctype="multipart/form-data">
                 @csrf
                 <div class="card-body">
                   <div class="form-group">
                     <label for="icnumber">Nombor Kad Pengenalan</label>
-                    <input type="text" name="identification_number_gcandidate" class="form-control" id="icnumber" placeholder="Nombor Kad Pengenalan tanpa (-)">
+                    <input type="text" name="identification_number_pcandidate" class="form-control" id="icnumber" placeholder="Nombor Kad Pengenalan tanpa (-)">
                   </div>
-                  @error('identification_number_gcandidate')
+                  @error('identification_number_pcandidate')
                   <div class="alert alert-danger alert-dismissible">{{ 'Sila masukkan nombor kad pengenalan calon!' }}</div>
                   @enderror
                   <div class="form-group">

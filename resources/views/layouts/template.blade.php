@@ -75,10 +75,39 @@
             <a href="{{ route('home') }}" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-                Dashboard
+                Daftar Calon Umum
               </p>
             </a>
-          </li>      
+            <li class="nav-item">
+              <a href="{{ route('tambahcalonprogram') }}" class="nav-link">
+                <i class="nav-icon fas fa-tachometer-alt"></i>
+                <p> Daftar Calon Program
+                </p>
+              </a>
+          </li>   <li class="nav-item">
+            <a href="{{ route('vote') }}" class="nav-link">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Vote
+              </p>
+            </a>
+          </li> 
+          <li class="nav-item">
+            <a href="{{ route('voteprogram') }}" class="nav-link">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                VoteProgram
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ route('student.index') }}" class="nav-link">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Data
+              </p>
+            </a>
+          </li>
           <li class="nav-item">
             <a href="{{ route('logout') }}" class="nav-link"  onclick="event.preventDefault();
                 document.getElementById('logout-form').submit();">
@@ -87,6 +116,7 @@
                 Log out
               </p>
             </a>
+
             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
              @csrf
             </form>
