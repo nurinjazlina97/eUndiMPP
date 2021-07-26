@@ -1,15 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\User;
 
-use Illuminate\Http\Request;
-use App\Models\ProgramCandidates;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Storage;
-use Resources\Views\User;
+use Illuminate\Http\Request;
 
-class ProgramCandidateController extends Controller
+class CandidateController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,7 +14,7 @@ class ProgramCandidateController extends Controller
      */
     public function index()
     {
-        
+        //
     }
 
     /**
@@ -28,7 +24,7 @@ class ProgramCandidateController extends Controller
      */
     public function create()
     {
-        return view ('user.tambahcalonprogram.create',);
+        //
     }
 
     /**
@@ -39,34 +35,8 @@ class ProgramCandidateController extends Controller
      */
     public function store(Request $request)
     {
-        
-        $request->validate([
-            'identification_number_pcandidate' => 'required',
-            'name' => 'required',
-            'program' => 'required',
-            'image' => 'required',
-        ]);
-
-        $tambahcalonprogram = auth()->user();
-        
-        if($request->hasFile('image')){
-            $filename=$request->image->getClientOriginalName();
-            Storage::disk('public')->put($filename, File::get($request->image));
-        }
-        $tambahcalonprogram = ProgramCandidates::create([
-            'identification_number_pcandidate' => $request->identification_number_pcandidate,
-            'name' => $request->name,
-            'program'=>$request->program,
-            'image'=>$filename,
-        ]);
-        
-            $tambahcalonprogram->save();
-            return redirect()->route('student.program')->with([
-                'alert-type'=>'alert alert-success alert-dismissible',
-                'alert-message'=>'Calon Berjaya Ditambah!'
-            ]);
+        //
     }
-
 
     /**
      * Display the specified resource.

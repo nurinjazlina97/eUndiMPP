@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProgramVotesTable extends Migration
+class CreateTypeCandidatesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,10 @@ class CreateProgramVotesTable extends Migration
      */
     public function up()
     {
-        Schema::create('program_votes', function (Blueprint $table) {
+        Schema::create('type_candidates', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('identification_number_student');
-            $table->unsignedInteger('identification_number_pcandidate');
-            $table->string('program');
-            $table->string('winners');
-            $table->unsignedInteger('vote_count');
+            $table->string('type_candidate_id');
+            $table->string('type');
             $table->timestamps();
         });
     }
@@ -31,6 +28,6 @@ class CreateProgramVotesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('program_votes');
+        Schema::dropIfExists('type_candidates');
     }
 }

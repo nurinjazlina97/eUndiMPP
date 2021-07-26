@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\GeneralCandidates;
+use App\Models\GeneralVotes;
 
 class VoteController extends Controller
 {
@@ -15,7 +16,8 @@ class VoteController extends Controller
     public function index()
     {
         $calonumums = GeneralCandidates::all();
-        return view ('user.vote.index', compact('calonumums'));
+        $voteumums = GeneralVotes::all();
+        return view ('user.vote.index', compact('calonumums','voteumums'));
     }
 
     /**
@@ -36,7 +38,7 @@ class VoteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**

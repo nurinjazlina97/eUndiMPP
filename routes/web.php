@@ -31,5 +31,10 @@ Route::post('/tambahcalon', [App\Http\Controllers\GeneralCandidateController::cl
 Route::post('/tambahcalonprogram/simpan', [App\Http\Controllers\ProgramCandidateController::class, 'store'])->name('tambahcalonprogram.simpan');
 
 Route::get('/datastudent', [App\Http\Controllers\DataStudentController::class, 'index'])->name('student.index');
+Route::get('/datastudentprogram', [App\Http\Controllers\DataProgramCandidateController::class, 'index'])->name('student.program'); 
 
 Route::get('/datastudent/delete/{calonumums}', [App\Http\Controllers\DataStudentController::class, 'destroy'])->name('student.delete');
+Route::get('/datastudentprogram/delete/{calonprograms}', [App\Http\Controllers\DataProgramCandidateController::class, 'destroy'])->name('student.delete');
+
+Route::get('/voteumumcount', [App\Http\Controllers\VoteUmumCountController::class, 'index'])->name('voteumumcount');
+Route::get('/voteprogramcount', [App\Http\Controllers\VoteProgramCountController::class, 'index'])->name('voteprogramcount');

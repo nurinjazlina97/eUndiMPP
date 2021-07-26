@@ -30,7 +30,7 @@
                       <td>{{$calonprogram->name}}</td>
                       <td>{{$calonprogram->identification_number_pcandidate}}</td>
                       <td>{{$calonprogram->program}}</td>
-                      <td><img src="{{asset('/storage/'.$calonprogram->image)}}" width="80" height="70"></td>
+                      <td><img src="{{asset('/storage/'.$calonprogram->image)}}" width="80" height="70" style="align-content:center"></td>
                       <td>
                         <form action="{{route('student.delete', $calonprogram)}}">
                           @csrf

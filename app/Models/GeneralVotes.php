@@ -14,4 +14,9 @@ class GeneralVotes extends Model
             'vote_count',
             'winners'
         ];
+
+    public function calonumums()
+    {
+        return $this->belongsTo(GeneralCandidate::class,'general_candidate_id');
+    }
 }

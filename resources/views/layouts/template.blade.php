@@ -71,43 +71,109 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-          <li class="nav-item">
-            <a href="{{ route('home') }}" class="nav-link">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+          @if(auth()->user()->is_admin == "1")
+          <li class="nav-item menu">
+            <a href="#" class="nav-link ">
+              <i class="nav-icon fas fa-chart-pie"></i>
               <p>
-                Daftar Calon Umum
+                Pendaftaran Calon
+                <i class="right fas fa-angle-left"></i>
               </p>
             </a>
-            <li class="nav-item">
-              <a href="{{ route('tambahcalonprogram') }}" class="nav-link">
-                <i class="nav-icon fas fa-tachometer-alt"></i>
-                <p> Daftar Calon Program
-                </p>
-              </a>
-          </li>   <li class="nav-item">
-            <a href="{{ route('vote') }}" class="nav-link">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>
-                Vote
-              </p>
-            </a>
-          </li> 
-          <li class="nav-item">
-            <a href="{{ route('voteprogram') }}" class="nav-link">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>
-                VoteProgram
-              </p>
-            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ route('home') }}" class="nav-link">
+                  <i class="nav-icon fas fa-tachometer-alt"></i>
+                  <p>Calon Umum</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('tambahcalonprogram') }}" class="nav-link">
+                  <i class="nav-icon fas fa-tachometer-alt"></i>
+                  <p>Calon Program</p>
+                </a>
+              </li>
+            </ul>
           </li>
           <li class="nav-item">
             <a href="{{ route('student.index') }}" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-                Data
+                Senarai Nama Pelajar
               </p>
             </a>
           </li>
+        <li class="nav-item menu">
+          <a href="#" class="nav-link ">
+            <i class="nav-icon fas fa-chart-pie"></i>
+            <p>
+              Senarai Calon
+              <i class="right fas fa-angle-left"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="{{ route('student.index') }}" class="nav-link">
+                <i class="nav-icon fas fa-tachometer-alt"></i>
+                <p>Calon Umum</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="{{ route('student.program') }}" class="nav-link">
+                <i class="nav-icon fas fa-tachometer-alt"></i>
+                <p>Calon Program</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+            <li class="nav-item menu">
+              <a href="#" class="nav-link ">
+                <i class="nav-icon fas fa-chart-pie"></i>
+                <p>
+                  Keputusan Undian
+                  <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="{{ route('voteumumcount') }}" class="nav-link">
+                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                    <p>Kerusi Umum</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="{{ route('voteprogramcount') }}" class="nav-link">
+                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                    <p>Kerusi Program</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            @else
+            <li class="nav-item menu">
+              <a href="#" class="nav-link ">
+                <i class="nav-icon fas fa-chart-pie"></i>
+                <p>
+                  Vote
+                  <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="{{ route('vote') }}" class="nav-link">
+                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                    <p>Umum</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="{{ route('voteprogram') }}" class="nav-link">
+                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                    <p>Program</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            @endif
           <li class="nav-item">
             <a href="{{ route('logout') }}" class="nav-link"  onclick="event.preventDefault();
                 document.getElementById('logout-form').submit();">

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.template')
 
 @section('content')
 <div class="container">
@@ -9,10 +9,10 @@
 
 
                 <div class="card-body">
-                    <button type="button" >PELAJAR</button
+                    <button type="button" >PELAJAR</button>
                 </div>
                 <div class="card-body">
-                    <button type="button" >ADMIN</button
+                    <button type="button" >ADMIN</button>
                 </div>
             </div>
         </div>

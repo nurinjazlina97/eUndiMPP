@@ -18,4 +18,14 @@ class GeneralCandidates extends Model
             'program',
             'image',
         ];
+    
+    public function user()
+    {
+        return $this->belongsTo(User::class,'user_id');
+    }
+
+    public function calonumumvote()
+    {
+        return $this->hasMany(GeneralVotes::class);
+    }
 }

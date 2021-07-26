@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateGeneralCandidatesTable extends Migration
+class CreateCandidatesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,11 @@ class CreateGeneralCandidatesTable extends Migration
      */
     public function up()
     {
-        Schema::create('general_candidates', function (Blueprint $table) {
+        Schema::create('candidates', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('user_id')->nullable();
-            $table->unsignedInteger('identification_number_gcandidate')->unique();
+            $table->string('candidate_ic')->unqiue;
             $table->string('name');
-            $table->string('program');
-            $table->string('image')->nullable();
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 
@@ -32,6 +28,6 @@ class CreateGeneralCandidatesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('general_candidates');
+        Schema::dropIfExists('candidates');
     }
 }
