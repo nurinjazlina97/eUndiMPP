@@ -88,7 +88,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ route('tambahcalonprogram') }}" class="nav-link">
+                <a href="{{ route('tambahcalon') }}" class="nav-link">
                   <i class="nav-icon fas fa-tachometer-alt"></i>
                   <p>Calon Program</p>
                 </a>

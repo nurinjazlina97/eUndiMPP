@@ -8,22 +8,15 @@
           <!-- Default box -->
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title ">DAFTAR CALON PROGRAM</h3>
+              <h3 class="card-title ">DAFTAR CALON </h3>
             </div>
             </div>
             <div class="card card-primary">
               <!-- /.card-header -->
               <!-- form start -->
-              <form method="POST" action="{{ route('tambahcalonprogram.simpan')}}" enctype="multipart/form-data">
+              <form method="POST" action="{{ route('tambahcalon.simpan')}}" enctype="multipart/form-data">
                 @csrf
                 <div class="card-body">
-                  <div class="form-group">
-                    <label for="icnumber">Nombor Kad Pengenalan</label>
-                    <input type="text" name="identification_number_pcandidate" class="form-control" id="icnumber" placeholder="Nombor Kad Pengenalan tanpa (-)">
-                  </div>
-                  @error('identification_number_pcandidate')
-                  <div class="alert alert-danger alert-dismissible">{{ 'Sila masukkan nombor kad pengenalan calon!' }}</div>
-                  @enderror
                   <div class="form-group">
                     <label for="name">Nama Penuh Calon</label>
                     <input type="text" name="name" class="form-control" id="name" placeholder="Nama Calon">
@@ -32,8 +25,20 @@
                   <div class="alert alert-danger alert-dismissible">{{ 'Sila isi nama calon!' }}</div>
                   @enderror
                   <div class="form-group">
-                    <label for="program">Program Calon</label>
-                    <input type="text" name="program" class="form-control" id="program" placeholder="Program">
+                    <label>Jenis Calon</label>
+                    <select class="select2" multiple="multiple" name="type_candidates" data-placeholder="Program" style="width: 50%;">
+                      <option value="umum">Umum</option>
+                      <option value="program">Program</option>
+                    </select>
+                  </div>
+                  @error('program')
+                  <div class="alert alert-danger alert-dismissible">{{ 'Sila isi program calon!' }}</div>
+                  @enderror
+                  <div class="form-group">
+                    <label>Program</label>
+                    <select class="select2" multiple="multiple" name="program" data-placeholder="Program" style="width: 50%;">
+                      <option value="cs230">CS230</option>
+                    </select>
                   </div>
                   @error('program')
                   <div class="alert alert-danger alert-dismissible">{{ 'Sila isi program calon!' }}</div>

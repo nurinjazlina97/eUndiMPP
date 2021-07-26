@@ -8,8 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Program extends Model
 {
     use HasFactory;
+    
     protected $fillable = [
-            'program_id',
-            'name',
-        ];
+        'name',
+    ];
+
+    public function candidate()
+    {
+        return $this->belongsTo(Candidate::class,'program_id');
+    }
 }

@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Candidate;
 use Illuminate\Http\Request;
+use Storage;
+use File;
 
 class CandidateController extends Controller
 {
@@ -36,11 +39,10 @@ class CandidateController extends Controller
     public function store(Request $request)
     {
         {
-            $request->validate([
-                'identification_number' => 'required',
-                'name' => 'required',
-                'image' => 'required',
-            ]);
+            // $request->validate([
+            //     'name' => 'required',
+            //     'type_candidate_id' => 'required',
+            // ]);
     
             $tambahcalon = auth()->user();
             
@@ -49,13 +51,16 @@ class CandidateController extends Controller
                 Storage::disk('public')->put($filename, File::get($request->image));
             }
             $tambahcalon = Candidate::create([
-                'identification_number' => $request->identification_number,
                 'name' => $request->name,
+                'type_candidate_id'=>$request->type_candidate_id,
+                'program_id'=>$request->program_id,
                 'image'=>$filename,
             ]);
-    
-                $tambahcalonumum->save();
-                return redirect()->route('student.index')->with([
+
+            dd($request);
+            
+                $tambahcalon->save();
+                return redirect()->route('admin.home')->with([
                     'alert-type'=>'alert alert-success alert-dismissible',
                     'alert-message'=>'Calon Berjaya Ditambah!'
                 ]);

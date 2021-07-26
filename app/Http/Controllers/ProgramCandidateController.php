@@ -28,7 +28,7 @@ class ProgramCandidateController extends Controller
      */
     public function create()
     {
-        return view ('user.tambahcalonprogram.create',);
+        return view ('user.tambahcalonprogram.create');
     }
 
     /**

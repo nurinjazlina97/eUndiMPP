@@ -25,10 +25,13 @@ Route::get('/admin/home', [App\Http\Controllers\HomeController::class, 'adminHom
 Route::get('/vote', [App\Http\Controllers\VoteController::class, 'index'])->name('vote');
 
 Route::get('/voteprogram', [App\Http\Controllers\VoteProgramController::class, 'index'])->name('voteprogram');
-Route::get('/tambahcalonprogram', [App\Http\Controllers\ProgramCandidateController::class, 'create'])->name('tambahcalonprogram');
+// Route::get('/tambahcalonprogram', [App\Http\Controllers\ProgramCandidateController::class, 'create'])->name('tambahcalonprogram');
 
-Route::post('/tambahcalon', [App\Http\Controllers\GeneralCandidateController::class, 'store'])->name('tambahcalon.simpan');
-Route::post('/tambahcalonprogram/simpan', [App\Http\Controllers\ProgramCandidateController::class, 'store'])->name('tambahcalonprogram.simpan');
+
+// Route::post('/tambahcalon', [App\Http\Controllers\GeneralCandidateController::class, 'store'])->name('tambahcalon.simpan');
+
+Route::get('/tambahcalon', [App\Http\Controllers\Admin\CandidateController::class, 'create'])->name('tambahcalon');
+Route::post('/tambahcalon/simpan', [App\Http\Controllers\Admin\CandidateController::class, 'store'])->name('tambahcalon.simpan');
 
 Route::get('/datastudent', [App\Http\Controllers\DataStudentController::class, 'index'])->name('student.index');
 Route::get('/datastudentprogram', [App\Http\Controllers\DataProgramCandidateController::class, 'index'])->name('student.program'); 

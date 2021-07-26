@@ -8,8 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class TypeCandidate extends Model
 {
     use HasFactory;
+    
     protected $fillable = [
-            'type_candidate_id',
-            'type',
-        ];
+        'type',
+        'type_candidate_id',
+        'candidate_id'
+    ];
+
+    public function candidate()
+    {
+        return $this->hasMany(Candidate::class);
+    }
 }
