@@ -7,8 +7,9 @@
             <div class="card">
                 <div class="card-header">{{ __('SELAMAT DATANG') }}</div>
 
+
                 <div class="card-body">
-                    <button type="button" >ADMIN</button>
+                    <button type="button" >PELAJAR</button>
                 </div>
             </div>
         </div>

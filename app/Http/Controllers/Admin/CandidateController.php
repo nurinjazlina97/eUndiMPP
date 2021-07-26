@@ -24,7 +24,7 @@ class CandidateController extends Controller
      */
     public function create()
     {
-        //
+        return view ('user.tambahcalon.create');
     }
 
     /**
@@ -35,7 +35,32 @@ class CandidateController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        {
+            $request->validate([
+                'identification_number' => 'required',
+                'name' => 'required',
+                'image' => 'required',
+            ]);
+    
+            $tambahcalon = auth()->user();
+            
+            if($request->hasFile('image')){
+                $filename=$request->image->getClientOriginalName();
+                Storage::disk('public')->put($filename, File::get($request->image));
+            }
+            $tambahcalon = Candidate::create([
+                'identification_number' => $request->identification_number,
+                'name' => $request->name,
+                'image'=>$filename,
+            ]);
+    
+                $tambahcalonumum->save();
+                return redirect()->route('student.index')->with([
+                    'alert-type'=>'alert alert-success alert-dismissible',
+                    'alert-message'=>'Calon Berjaya Ditambah!'
+                ]);
+            
+        }
     }
 
     /**

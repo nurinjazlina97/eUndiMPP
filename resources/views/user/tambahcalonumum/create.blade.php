@@ -19,9 +19,9 @@
                 <div class="card-body">
                   <div class="form-group">
                     <label for="icnumber">Nombor Kad Pengenalan</label>
-                    <input type="text" name="identification_number_gcandidate" class="form-control" id="icnumber" placeholder="Nombor Kad Pengenalan tanpa (-)">
+                    <input type="text" name="identification_number" class="form-control" id="icnumber" placeholder="Nombor Kad Pengenalan tanpa (-)">
                   </div>
-                  @error('identification_number_gcandidate')
+                  @error('identification_number')
                   <div class="alert alert-danger alert-dismissible">{{ 'Sila masukkan nombor kad pengenalan calon!' }}</div>
                   @enderror
                   <div class="form-group">
@@ -32,8 +32,19 @@
                   <div class="alert alert-danger alert-dismissible">{{ 'Sila isi nama calon!' }}</div>
                   @enderror
                   <div class="form-group">
-                    <label for="program">Program Calon</label>
-                    <input type="text" name="program" class="form-control" id="program" placeholder="Program">
+                    <label>Jenis Calon</label>
+                    <select class="select2" multiple="multiple" name="type_candidates" data-placeholder="Program" style="width: 50%;">
+                      <option>Alabama</option>
+                    </select>
+                  </div>
+                  @error('program')
+                  <div class="alert alert-danger alert-dismissible">{{ 'Sila isi program calon!' }}</div>
+                  @enderror
+                  <div class="form-group">
+                    <label>Program</label>
+                    <select class="select2" multiple="multiple" name="program" data-placeholder="Program" style="width: 50%;">
+                      <option>Alabama</option>
+                    </select>
                   </div>
                   @error('program')
                   <div class="alert alert-danger alert-dismissible">{{ 'Sila isi program calon!' }}</div>

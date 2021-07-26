@@ -15,9 +15,13 @@ class CreateCandidatesTable extends Migration
     {
         Schema::create('candidates', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('candidate_ic')->unqiue;
             $table->string('name');
+            $table->unsignedInteger('type_candidate_id');
+            $table->unsignedInteger('program_id');
             $table->timestamps();
+
+            $table->foreign('type_candidate_id')->references('id')->on('type_candidates')->onDelete('cascade');
+            $table->foreign('program_id')->references('id')->on('programs')->onDelete('cascade');
         });
     }
 
